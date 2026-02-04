@@ -27,32 +27,33 @@ class ProgramResolver:
         if self.rules_df.empty:
             return "STANDARD"
         
-        # 1. Exact Account Match
-        match = self.rules_df[
-            (self.rules_df['match_type'] == 'account') & 
-            (self.rules_df['match_value'] == str(account_id))
-        ]
-        if not match.empty:
-            return match.iloc[0]['program_id']
-        
-        # 2. Group Match
-        if account_groups:
-            match = self.rules_df[
-                (self.rules_df['match_type'] == 'group') & 
-                (self.rules_df['match_value'].isin(account_groups))
-            ]
-            if not match.empty:
-                # Sort by priority? For now take first.
-                return match.iloc[0]['program_id']
-        
-        # 3. Order Type Match
+        # 1. Order Type Match (Global Overrides like Trade-In/Employee)
         if order_type is not None:
             match = self.rules_df[
-                (self.rules_df['match_type'] == 'order_type') & 
+                (self.rules_df['match_type'] == 'order_type') &
                 (self.rules_df['match_value'] == str(order_type))
             ]
             if not match.empty:
                 return match.iloc[0]['program_id']
-        
+
+        # 2. Exact Account Match
+        match = self.rules_df[
+            (self.rules_df['match_type'] == 'account_id') &
+            (self.rules_df['match_value'] == str(account_id))
+        ]
+        if not match.empty:
+            return match.iloc[0]['program_id']
+
+        # 3. Group Match
+        if account_groups:
+            match = self.rules_df[
+                (self.rules_df['match_type'] == 'group_id') &
+                (self.rules_df['match_value'].isin(account_groups))
+            ]
+            if not match.empty:
+                if 'priority' in match.columns:
+                    match = match.sort_values('priority', ascending=False)
+                return match.iloc[0]['program_id']
+
         # 4. Fallback
         return "STANDARD"

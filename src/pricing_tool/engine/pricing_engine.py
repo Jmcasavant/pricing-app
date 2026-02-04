@@ -10,6 +10,7 @@ Migrated from the original pricing_engine.py with added:
 """
 import pandas as pd
 import os
+from pathlib import Path
 from typing import Optional
 
 from ..config.settings import get_settings, Settings
@@ -33,6 +34,11 @@ class PricingEngine:
     def __init__(self, settings: Optional[Settings] = None):
         """Initialize engine with catalog, mapping data, and rules."""
         self.settings = settings or get_settings()
+        
+        # Policy Engine
+        # Assuming policy csvs are in src/pricing_tool/policy
+        self.policy_dir = Path(__file__).parent.parent / 'policy'
+        self.policy_engine = OrderPolicyEngine(self.policy_dir)
         
         catalog_path = self.settings.master_catalog
         rules_path = self.settings.rules_excel
@@ -262,9 +268,10 @@ class PricingEngine:
             self.group_members['Account Number'] == str(request.account_id)
         ]['Group ID'].unique().tolist()
         
-        # Resolve Active Program and other policies
-        # We need to temporarily add groups to engine or pass them to policy engine
-        # Let's update OrderPolicyEngine.apply_policies to accept groups
+        # Ensure a baseline date for policy filtering if none provided (Legacy compatibility)
+        if not request.request_date:
+            request.request_date = "2025-01-01"
+            
         self.order_policy_engine.apply_policies(request, result, account_groups)
         
         return result
@@ -357,7 +364,29 @@ class PricingEngine:
                 for trace_msg in traces:
                     line.add_trace("Rule Applied", trace_msg, f"${new_price:.2f}")
         
+        # [NEW] Phase 2: Configuration Adjustments
+        if config:
+            config_charge = self._resolve_config_adjustments(sku, config)
+            if config_charge != 0:
+                line.unit_price += config_charge
+                line.add_trace("Config Charge", f"Adjustments for {len(config)} options", f"+${config_charge:.2f}")
+
         line.extended_price = line.unit_price * qty
         line.add_trace("Extension", f"Quantity {qty} × ${line.unit_price:.2f}", f"${line.extended_price:.2f}")
         
         return line
+
+    def _resolve_config_adjustments(self, sku: str, config: dict) -> float:
+        """Calculate price adjustments based on item configuration."""
+        charge = 0.0
+        # Hardcoded Schutt Example for Phase 2 proof
+        if "facemask" in config:
+            val = str(config["facemask"]).lower()
+            if "titanium" in val:
+                charge += 125.0
+            elif "carbon" in val:
+                charge += 45.0
+        if "shell_color" in config:
+            if str(config["shell_color"]).lower() == "matte_black":
+                charge += 15.0
+        return charge

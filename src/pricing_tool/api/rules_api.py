@@ -96,6 +96,9 @@ class TestRuleRequest(BaseModel):
     """Request model for testing rules."""
     account_id: str
     sku: str
+    qty: int = 1
+    request_date: Optional[str] = None
+    channel: Optional[str] = "all"
 
 
 class TestRuleResponse(BaseModel):
@@ -210,13 +213,15 @@ async def test_rules(request: TestRuleRequest):
         account_id=request.account_id,
         account_group=account_group,
         sku=request.sku,
-        qty=1
+        qty=request.qty,
+        request_date=request.request_date,
+        channel=request.channel
     )
     
     # Get base price
     base_price = None
     tier = engine.get_tier(request.account_id)
-    catalog_match = engine.master_catalog[engine.master_catalog['SKU'] == request.sku]
+    catalog_match = engine.catalog[engine.catalog.index == request.sku]
     if not catalog_match.empty:
         tier_col = f"{tier}_Price"
         if tier_col in catalog_match.columns:

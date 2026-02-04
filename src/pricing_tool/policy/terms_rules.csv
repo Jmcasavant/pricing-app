@@ -1,6 +1,8 @@
-program_id,min_total,max_total,terms_code,priority,notes
-STANDARD,0,999.99,Net 30,50,
-STANDARD,1000,9999999,Net 60,50,
-BSN,0,9999999,Net 60,50,
-ALLI,0,9999999,Net 90,50,
-INTERNATIONAL,0,9999999,CIA,50,Cash In Advance
+program_id,min_total,max_total,terms_code,net_days,dated_due_date,start_date,end_date,needs_review,review_reason,priority,notes
+STANDARD,0,999.99,NET_30,30,,,,false,,50,Baseline Standard
+STANDARD,1000,9999999,NET_60,60,,,,false,,50,Baseline Standard Large
+BSN,0,9999999,DATED,,2026-10-01,2026-01-01,2026-01-31,false,,60,BSN Jan Promo
+BSN,0,9999999,NET_60,60,,,,false,,50,BSN Standard
+GAME_ONE,0,9999999,DATED,,2026-12-01,2026-01-01,2026-12-31,false,,50,Game One Dated
+INTERNATIONAL,0,9999999,CIA,0,,,,false,,50,International CIA
+ALLI,0,9999999,NET_60,60,,,,true,Check T&C typo,50,

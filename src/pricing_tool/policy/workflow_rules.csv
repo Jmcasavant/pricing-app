@@ -1,3 +1,2 @@
 program_id,match_type,match_value,hold_code,message,priority
-INTERNATIONAL,ship_method,Direct,HOLD_FORWARDER,International orders require a freight forwarder,10
-SPORTS_LINE,always,true,HOLD_SPORTSLINE,Sports Line order requires manual review,10
+SPORTS_LINE,always,,HOLD_SPORTSLINE,Review Sports Line Order,50

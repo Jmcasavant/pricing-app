@@ -1,0 +1,10 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.2, pytest-9.0.2, pluggy-1.6.0
+rootdir: C:\Projects\Certor\pricing-app
+configfile: pyproject.toml
+plugins: anyio-4.12.1
+collected 13 items
+
+tests\test_period2_logic.py .............                                [100%]
+
+============================= 13 passed in 1.72s ==============================

@@ -58,6 +58,13 @@ export default function AvanteCompanion() {
   const [cart, setCart] = useState<Record<string, number>>({});
   const [calcResult, setCalcResult] = useState<CalcResult | null>(null);
 
+  // Context Fields
+  const [orderDate, setOrderDate] = useState(new Date().toISOString().split('T')[0]);
+  const [orderType, setOrderType] = useState<number>(0); // 0 = Standard
+  const [paymentMethod, setPaymentMethod] = useState("CHECK");
+  const [shipMethod, setShipMethod] = useState("GROUND");
+  const [shipToType, setShipToType] = useState("DOMESTIC_STANDARD");
+
   // UI State
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -93,7 +100,7 @@ export default function AvanteCompanion() {
     return () => clearTimeout(timer);
   }, [searchTerm, accountNumber]);
 
-  // Calculate quote whenever cart or account changes
+  // Calculate quote whenever cart or context changes
   useEffect(() => {
     const fetchCalc = async () => {
       if (Object.keys(cart).length === 0) {
@@ -101,7 +108,15 @@ export default function AvanteCompanion() {
         return;
       }
       try {
-        const res = await calculateQuote(accountNumber, cart);
+        const res = await calculateQuote({
+          account_id: accountNumber,
+          items: cart,
+          request_date: orderDate,
+          order_type: orderType,
+          payment_method: paymentMethod,
+          ship_method: shipMethod,
+          ship_to_type: shipToType
+        });
         setCalcResult(res);
         if (res.intel) setAccountIntel(res.intel);
       } catch (e) {
@@ -109,7 +124,7 @@ export default function AvanteCompanion() {
       }
     };
     fetchCalc();
-  }, [cart, accountNumber]);
+  }, [cart, accountNumber, orderDate, orderType, paymentMethod, shipMethod, shipToType]);
 
   const addToCart = (sku: string, qty: number = 1) => {
     setCart(prev => ({ ...prev, [sku]: (prev[sku] || 0) + qty }));
@@ -225,18 +240,65 @@ export default function AvanteCompanion() {
 
             <div className="h-10 w-px bg-white/10" />
 
-            <div className="flex items-center gap-8">
+            <div className="h-10 w-px bg-white/10" />
+
+            <div className="flex items-center gap-6">
               <div>
                 <label className="text-[9px] font-bold uppercase tracking-widest text-gray-500 block mb-1">Freight Policy</label>
-                <div className="text-xs font-bold text-gray-200">
-                  {accountIntel.Freight || "MSRP Standard"}
+                <div className={cn(
+                  "text-xs font-bold",
+                  calcResult?.policy?.freight?.mode === "FFA" ? "text-green-400" : "text-gray-200"
+                )}>
+                  {calcResult?.policy?.freight?.mode ? (
+                    <span>{calcResult.policy.freight.mode} {calcResult.policy.freight.ffa_percent ? `(${calcResult.policy.freight.ffa_percent}%)` : ""}</span>
+                  ) : (accountIntel.Freight || "MSRP Standard")}
                 </div>
               </div>
               <div>
                 <label className="text-[9px] font-bold uppercase tracking-widest text-gray-500 block mb-1">Payment Terms</label>
                 <div className="text-xs font-bold text-gray-200">
-                  {accountIntel.Terms || "Prepaid"}
+                  {calcResult?.policy?.terms?.code || accountIntel.Terms || "Prepaid"}
+                  {calcResult?.policy?.terms?.due_date && <span className="ml-1 opacity-50 font-normal">due {calcResult.policy.terms.due_date}</span>}
                 </div>
+              </div>
+            </div>
+
+            <div className="h-10 w-px bg-white/10" />
+
+            <div className="flex items-center gap-4">
+              <div>
+                <label className="text-[9px] font-bold uppercase tracking-widest text-gray-500 block mb-1">Request Date</label>
+                <input
+                  type="date"
+                  value={orderDate}
+                  onChange={(e) => setOrderDate(e.target.value)}
+                  className="bg-black/50 border border-white/10 rounded px-2 py-1 text-[11px] h-8 focus:outline-none focus:border-blue-500 font-mono"
+                />
+              </div>
+              <div>
+                <label className="text-[9px] font-bold uppercase tracking-widest text-gray-500 block mb-1">Order Type</label>
+                <select
+                  value={orderType}
+                  onChange={(e) => setOrderType(parseInt(e.target.value))}
+                  className="bg-black/50 border border-white/10 rounded px-2 py-1 text-[11px] h-8 focus:outline-none focus:border-blue-500"
+                >
+                  <option value={0}>Standard</option>
+                  <option value={6}>International</option>
+                  <option value={25}>Trade-In</option>
+                  <option value={26}>Employee</option>
+                </select>
+              </div>
+              <div>
+                <label className="text-[9px] font-bold uppercase tracking-widest text-gray-500 block mb-1">Ship Method</label>
+                <select
+                  value={shipMethod}
+                  onChange={(e) => setShipMethod(e.target.value)}
+                  className="bg-black/50 border border-white/10 rounded px-2 py-1 text-[11px] h-8 focus:outline-none focus:border-blue-500"
+                >
+                  <option value="GROUND">Standard (Ground)</option>
+                  <option value="PRIORITY OVERNIGHT">Priority Overnight</option>
+                  <option value="FEDEX_2_DAY">FedEx 2Day</option>
+                </select>
               </div>
             </div>
           </div>
@@ -249,14 +311,17 @@ export default function AvanteCompanion() {
               Rules Admin
             </a>
             <div className="text-right">
-              <div className="text-[10px] uppercase tracking-widest text-gray-500">Items</div>
-              <div className="text-xl font-bold">{Object.keys(cart).length}</div>
+              <div className="text-[10px] uppercase tracking-widest text-gray-500">Subtotal</div>
+              <div className="text-xl font-bold">${calcResult?.total.toFixed(2) || "0.00"}</div>
             </div>
             <div className="h-10 w-px bg-white/10" />
             <div className="text-right">
-              <div className="text-[10px] uppercase tracking-widest text-gray-500">Total</div>
+              <div className="text-[10px] uppercase tracking-widest text-gray-500">Final Total</div>
               <div className="text-xl font-bold text-green-400">
-                ${calcResult?.total.toFixed(2) || "0.00"}
+                ${(
+                  (calcResult?.total || 0) +
+                  (calcResult?.policy?.adjustments?.reduce((sum, a) => sum + a.amount, 0) || 0)
+                ).toFixed(2)}
               </div>
             </div>
           </div>
@@ -461,15 +526,47 @@ export default function AvanteCompanion() {
 
           {/* Order Summary Footer */}
           {calcResult && calcResult.lines.length > 0 && (
-            <div className="p-4 bg-[#0f0f0f] border-t border-white/10">
+            <div className="p-4 bg-[#0f0f0f] border-t border-white/10 space-y-4">
+              {/* Policy Alerts */}
+              {(calcResult.policy?.holds?.length > 0 || calcResult.policy?.needs_review) && (
+                <div className="space-y-2">
+                  {calcResult.policy.holds.map(hold => (
+                    <div key={hold.code} className="flex items-start gap-2 p-2 bg-red-500/10 border border-red-500/20 rounded text-red-400 text-xs">
+                      <AlertCircle size={14} className="mt-0.5" />
+                      <div>
+                        <span className="font-bold mr-2">{hold.code}</span>
+                        {hold.message}
+                      </div>
+                    </div>
+                  ))}
+                  {calcResult.policy.needs_review && (
+                    <div className="flex items-start gap-2 p-2 bg-yellow-500/10 border border-yellow-500/20 rounded text-yellow-400 text-xs">
+                      <Zap size={14} className="mt-0.5" />
+                      <div>
+                        <span className="font-bold mr-2">REVIEW REQUIRED</span>
+                        {calcResult.policy.review_reason}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm text-gray-500">{calcResult.lines.length} line items</div>
+                <div className="space-y-1">
+                  <div className="text-xs text-gray-500">{calcResult.lines.length} line items</div>
+                  {calcResult.policy?.adjustments?.map(adj => (
+                    <div key={adj.code} className="text-xs text-blue-400 font-medium">
+                      + {adj.amount.toFixed(2)} {adj.description} ({adj.code})
+                    </div>
+                  ))}
                 </div>
                 <div className="text-right">
                   <div className="text-[10px] uppercase text-gray-500">Order Total</div>
                   <div className="text-3xl font-black text-green-400">
-                    ${calcResult.total.toFixed(2)}
+                    ${(
+                      (calcResult?.total || 0) +
+                      (calcResult?.policy?.adjustments?.reduce((sum, a) => sum + a.amount, 0) || 0)
+                    ).toFixed(2)}
                   </div>
                 </div>
               </div>

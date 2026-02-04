@@ -1,6 +1,7 @@
-program_id,min_total,max_total,freight_policy,ffa_threshold,bill_freight,priority,notes
-STANDARD,0,1749.99,Customer Pays,1750,true,50,
-STANDARD,1750,9999999,FFA,1750,false,50,Free Freight Allowed
-BSN,0,9999999,FFA,0,false,50,BSN always FFA
-SPORTS_LINE,0,9999999,18% SFT Charge,0,true,50,
-INTERNATIONAL,0,9999999,Ex Works,0,true,50,
+program_id,min_total,max_total,customer_tier,freight_mode,ffa_percent,carrier_required,bill_freight,is_sft,start_date,end_date,priority,notes
+STANDARD,2500,9999999,,FFA,0,,false,false,,,50,Standard FFA
+STANDARD,0,2499.99,,CUSTOMER_PAYS_CARRIER_RATE,0,,true,false,,,40,Standard Pay
+STANDARD,1750,9999999,PLATINUM,FFA,0,,false,false,,,70,Platinum FFA
+SPORTS_LINE,0,9999999,,SFT_PERCENT,18,,false,true,,,50,Sports Line SFT
+BSN,0,9999999,,FFA,0,,false,false,,,60,BSN Always FFA
+INTERNATIONAL,0,9999999,,CUSTOMER_PAYS_CARRIER_RATE,0,,true,false,,,50,International Pay
