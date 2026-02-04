@@ -1,7 +1,7 @@
 # Avante Pricing Engine & Companion App
 
-**Current Status: v0.5 (Rules Admin Release)**
-**Date:** February 3, 2026
+**Current Status: v1.0 (Period 2 Alignment)**
+**Date:** February 4, 2026
 
 ## Project Overview
 This project is a dual-stack application designed to manage complex B2B pricing logic for Certor Sports (Avante). It consists of a Python Pricing Engine (Backend) that processes rules and extensive catalog data, and a Next.js Frontend (Companion App) for sales reps to build orders and view pricing.
@@ -10,54 +10,52 @@ This project is a dual-stack application designed to manage complex B2B pricing 
 
 ### src/pricing_tool/ (Backend / Core Logic)
 The core Python package handling all business logic.
-- **api/**: FastAPI routers.
-  - `rules_api.py`: Endpoints for CRUD operations on pricing rules.
-- **engine/**: The heart of the pricing logic.
-  - `calc.py`: Main calculation engine.
-  - `rule_matcher.py`: Logic to match rules to order lines.
-- **rules/**: Rule management.
-  - `rules.csv`: Source of Truth for all pricing rules.
-  - `compiled_rules.json`: High-performance JSON artifact generated from CSV.
-- **services/**: Business logic layer.
-  - `rules_service.py`: Handles validation, conflict detection, and CSV writing.
+- **api/**: FastAPI routers (`main.py`, `rules_api.py`).
+- **engine/**: The heart of the pricing logic (`pricing_engine.py`, `rule_matcher.py`).
+- **policy/**: **[NEW]** Order-level policy logic.
+  - `order_policy_engine.py`: Computes terms, freight, and holds.
+  - `program_resolver.py`: Resolves Active Program ID (BSN, Sports Line, etc.).
+- **rules/**: Rule management (`rules.csv`, `compile_rules.py`).
 
 ### frontend/ (Next.js Application)
 Interactive web UI for users.
 - **src/app/page.tsx**: Main "Order Builder" dashboard.
-- **src/app/admin/rules/page.tsx**: **[NEW]** Rules Administration interface.
-- **src/lib/rules-api.ts**: Frontend client for the Rules API.
-
-### scripts/ (Utility)
-- **run_api.py**: Entry point to start the FastAPI server (Port 8000).
-- **legacy/**: Contains previous Streamlit-based application files (`app.py`, `pricing_engine.py`, etc.).
+- **src/app/admin/rules/page.tsx**: Rules Administration interface.
 
 ---
 
 ## Current Status & Features
 
-### 1. Rules Administration
-- **Full CRUD**: Create, Read, Update, Delete pricing rules via UI.
-- **Visuals**: High-density dark mode ("Pro" aesthetic) matching the main dashboard.
-- **Validation**: Real-time checking for conflicts and invalid inputs.
-- **Testing**: Built-in "Rule Tester" to simulate price calculations immediately.
+### 1. Order Policy Engine (Phase 1)
+- **Program Resolution**: Waterfall mapping for accounts/groups to specific programs.
+- **Smart Terms**: Dynamic calculation of Net 30/60/90 based on program and order total.
+- **Freight Policies**: Automated freight charges (e.g., 18% SFT) and FFA (Free Freight Allowed) threshold enforcement.
+- **Workflow Holds**: Automated hold flagging for specific order conditions.
 
-### 2. Pricing Engine
-- **Source**: `rules.csv` is the primary database.
-- **Compilation**: Rules are "compiled" into JSON for sub-millisecond lookups.
-- **Logic**: Supports overrides, discounts (Amount/%), and price floors.
+### 2. Pricing Engine (Period 2)
+- **Date Gating**: Rules now respect effective dating (Rebates end 4/15/26, BSN ends 1/31/26).
+- **Item Configuration**: Support for custom line-level data (e.g., helmet colors) through the calculation lifecycle.
+- **Traceability**: Full execution trace for every price resolved.
 
-### 3. Order Builder (Frontend)
-- **Grid Layout**: High-density table for rapid order entry.
-- **Live Pricing**: Real-time calls to the backend engine.
-- **Smart Features**: "Clear All", one-click copy, and rule source indicators.
+### 3. Rules Administration
+- **Full CRUD**: Manage pricing rules via a premium high-density dark mode UI.
+- **Live Testing**: Integrated "Rule Tester" for immediate validation against the live engine.
+
+---
+
+## Development Setup
+
+### Backend (Python 3.10+)
+1.  **Dependencies**: `pip install -r requirements.txt` (or install `fastapi`, `uvicorn`, `pandas`, `openpyxl`).
+2.  **Start API**: `python scripts/run_api.py` (Runs on Port 8000).
+
+### Frontend (Next.js)
+1.  **Navigate**: `cd frontend`
+2.  **Install**: `npm install`
+3.  **Start Dev**: `npm run dev` (Runs on Port 3000).
 
 ---
 
 ## Known Issues / Notes
-- **Browser Environment**: The internal browser tool is currently unavailable; visual verification relies on user screenshots.
-- **Rule Updates**: Rules are auto-compiled on save, but heavily cached engine instances may need a restart if changes aren't immediate in the main app (though `run_api.py` typically handles this).
-
-## Next Steps
-1.  **Catalog Integration**: Deepen the link between `Master_Catalog` and the Rules engine for SKU validation.
-2.  **Bulk Operations**: Add CSV import/export for bulk rule updates via the Admin UI.
-3.  **Authentication**: Secure the Admin routes (currently open).
+- **Data Files**: `Master_Catalog_Final.csv` and `Pricing Rules Starter 1.xlsx` must be present in the project root.
+- **Rule Compilation**: Rules are compiled to `compiled_rules.json` for high performance. Use the Admin UI or `python src/pricing_tool/rules/compile_rules.py` to trigger.
