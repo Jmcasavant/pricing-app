@@ -15,6 +15,7 @@ from typing import Optional
 from ..config.settings import get_settings, Settings
 from .models import Request, LineItem, Result
 from .rule_matcher import RuleMatcher
+from ..policy.order_policy_engine import OrderPolicyEngine
 
 
 class PricingEngine:
@@ -95,6 +96,10 @@ class PricingEngine:
 
         # Load compiled rules (optional - may not exist yet)
         self.rule_matcher = RuleMatcher(self.settings.compiled_rules)
+        
+        # [NEW] Order Policy Layer
+        policy_dir = src_path / "pricing_tool/policy"
+        self.order_policy_engine = OrderPolicyEngine(policy_dir)
     
     def reload_data(self):
         """Reload all CSV/Excel data and rules from disk."""
@@ -240,7 +245,8 @@ class PricingEngine:
         
         # Process each line item
         for sku, qty in request.items.items():
-            line = self._calculate_line(sku, qty, tier, request.account_id)
+            config = request.item_configs.get(sku) if request.item_configs else None
+            line = self._calculate_line(sku, qty, tier, request.account_id, request.request_date, config)
             if line:
                 result.lines.append(line)
                 result.total += line.extended_price
@@ -250,9 +256,20 @@ class PricingEngine:
                     if warning not in result.warnings:
                         result.add_warning(warning)
         
+        # [NEW] Apply Order Policies
+        # Resolve groups for policy engine
+        account_groups = self.group_members[
+            self.group_members['Account Number'] == str(request.account_id)
+        ]['Group ID'].unique().tolist()
+        
+        # Resolve Active Program and other policies
+        # We need to temporarily add groups to engine or pass them to policy engine
+        # Let's update OrderPolicyEngine.apply_policies to accept groups
+        self.order_policy_engine.apply_policies(request, result, account_groups)
+        
         return result
     
-    def _calculate_line(self, sku: str, qty: int, tier: str, account_id: str = "") -> Optional[LineItem]:
+    def _calculate_line(self, sku: str, qty: int, tier: str, account_id: str = "", request_date: Optional[str] = None, config: Optional[dict] = None) -> Optional[LineItem]:
         """Calculate a single line item with trace and rule application."""
         sku = str(sku).strip()
         account_id = str(account_id).strip()
@@ -281,6 +298,7 @@ class PricingEngine:
             extended_price=0.0,
             tier_used=tier,
             source="",
+            configuration=config
         )
         
         line.add_trace("SKU Lookup", f"Found product in catalog", sku)
@@ -294,7 +312,8 @@ class PricingEngine:
                 account_id=account_id,
                 account_group=group_str,
                 sku=sku,
-                qty=qty
+                qty=qty,
+                request_date=request_date
             )
 
         # Check for tier-level rules first (set_tier action)

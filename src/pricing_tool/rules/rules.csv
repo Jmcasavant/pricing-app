@@ -1,22 +1,22 @@
 rule_id,name,active,priority,account,account_group,sku,sku_prefix,brand,min_qty,max_qty,start_date,end_date,channel,action_type,action_value,notes
-P2-YTH-Z2-10,P2 Instant Rebate: Youth Zero 2,true,10,,,,193092,,,,2026-01-01,2026-04-30,all,discount_amount,10,Instant Rebate $10 off Stock/CTO
-P2-YTH-Z2E-25,P2 Instant Rebate: Youth Zero 2 Elite,true,10,,,,19309E,,,,2026-01-01,2026-04-30,all,discount_amount,25,Instant Rebate $25 off Elite
-P2-2075-10,P2 Instant Rebate: 2075 Stock/CTO,true,10,,,,2075,,,,2026-01-01,2026-04-30,all,discount_amount,10,Instant Rebate $10 off 2075 Series
-P2-2078-25,P2 Instant Rebate: 2078 Stock/CTO,true,10,,,,2078,,,,2026-01-01,2026-04-30,all,discount_amount,25,Instant Rebate $25 off 2078 Series
+P2-YTH-Z2-10,P2 Instant Rebate: Youth Zero 2,true,10,,,,193092,,,,2026-01-01,2026-04-15,all,discount_amount,10,Instant Rebate $10 off Stock/CTO
+P2-YTH-Z2E-25,P2 Instant Rebate: Youth Zero 2 Elite,true,10,,,,19309E,,,,2026-01-01,2026-04-15,all,discount_amount,25,Instant Rebate $25 off Elite
+P2-2075-10,P2 Instant Rebate: 2075 Stock/CTO,true,10,,,,2075,,,,2026-01-01,2026-04-15,all,discount_amount,10,Instant Rebate $10 off 2075 Series
+P2-2078-25,P2 Instant Rebate: 2078 Stock/CTO,true,10,,,,2078,,,,2026-01-01,2026-04-15,all,discount_amount,25,Instant Rebate $25 off 2078 Series
 G1-F7-VAR,Game One: F7 Varsity $285,true,50,,GAME_ONE,,2070,,,,2026-01-01,2026-04-30,all,override_unit_price,285,Period 2 Special
 G1-F7-YTH-CTO,Game One: F7 Youth CTO $115,true,50,,GAME_ONE,,2075,,,,2026-01-01,2026-04-30,all,override_unit_price,115,Period 2 Special
 G1-F7-YTH-STK,Game One: F7 Youth Stock $100,true,60,,GAME_ONE,2075001002301,,,,,2026-01-01,2026-04-30,all,override_unit_price,100,Overrides CTO price
 G1-F7-YTH-ELT,Game One: F7 Youth Elite $200,true,50,,GAME_ONE,,2078,,,,2026-01-01,2026-04-30,all,override_unit_price,200,Period 2 Special
-BSN-F7-VAR,BSN: F7 Varsity $267,true,50,,BSN,,2070,,,,2026-01-01,2026-04-30,all,override_unit_price,267,Period 2 Special
-BSN-F7-YTH-CTO,BSN: F7 Youth CTO $109,true,50,,BSN,,2075,,,,2026-01-01,2026-04-30,all,override_unit_price,109,Period 2 Special
-BSN-F7-YTH-STK,BSN: F7 Youth Stock $96,true,60,,BSN,2075001002301,,,,,2026-01-01,2026-04-30,all,override_unit_price,96,Overrides CTO price
-BSN-F7-YTH-ELT,BSN: F7 Youth Elite $192,true,50,,BSN,,2078,,,,2026-01-01,2026-04-30,all,override_unit_price,192,Period 2 Special
-BSN-Z2-VAR,BSN: Varsity Zero 2 $356,true,50,,BSN,,19300,,,,2026-01-01,2026-04-30,all,override_unit_price,356,Includes QB Elite
-BSN-Z2-TRN,BSN: Zero 2 Trench $377,true,50,,BSN,,19302,,,,2026-01-01,2026-04-30,all,override_unit_price,377,Includes QB Elite
-BSN-Z2-YTH,BSN: Youth Zero 2 $249,true,50,,BSN,,19309,,,,2026-01-01,2026-04-30,all,override_unit_price,249,
-BSN-ARC-VAR,BSN: ARC V1 Varsity $159,true,50,,BSN,,9650,,,,2026-01-01,2026-04-30,all,override_unit_price,159,ARC V1 Varsity Pads
-BSN-7996,BSN: Back Plate $8,true,50,,BSN,79960500,,,,,2026-01-01,2026-04-30,all,override_unit_price,8,
-BSN-7994,BSN: Rib Pad $7,true,50,,BSN,79940000,,,,,2026-01-01,2026-04-30,all,override_unit_price,7,
+BSN-F7-VAR,BSN: F7 Varsity $267,true,50,,BSN,,2070,,,,2026-01-01,2026-01-31,all,override_unit_price,267,Period 2 Special
+BSN-F7-YTH-CTO,BSN: F7 Youth CTO $109,true,50,,BSN,,2075,,,,2026-01-01,2026-01-31,all,override_unit_price,109,Period 2 Special
+BSN-F7-YTH-STK,BSN: F7 Youth Stock $96,true,60,,BSN,2075001002301,,,,,2026-01-01,2026-01-31,all,override_unit_price,96,Overrides CTO price
+BSN-F7-YTH-ELT,BSN: F7 Youth Elite $192,true,50,,BSN,,2078,,,,2026-01-01,2026-01-31,all,override_unit_price,192,Period 2 Special
+BSN-Z2-VAR,BSN: Varsity Zero 2 $356,true,50,,BSN,,19300,,,,2026-01-01,2026-01-31,all,override_unit_price,356,Includes QB Elite
+BSN-Z2-TRN,BSN: Zero 2 Trench $377,true,50,,BSN,,19302,,,,2026-01-01,2026-01-31,all,override_unit_price,377,Includes QB Elite
+BSN-Z2-YTH,BSN: Youth Zero 2 $249,true,50,,BSN,,19309,,,,2026-01-01,2026-01-31,all,override_unit_price,249,
+BSN-ARC-VAR,BSN: ARC V1 Varsity $159,true,50,,BSN,,9650,,,,2026-01-01,2026-01-31,all,override_unit_price,159,ARC V1 Varsity Pads
+BSN-7996,BSN: Back Plate $8,true,50,,BSN,79960500,,,,,2026-01-01,2026-01-31,all,override_unit_price,8,
+BSN-7994,BSN: Rib Pad $7,true,50,,BSN,79940000,,,,,2026-01-01,2026-01-31,all,override_unit_price,7,
 ALLI-F72-COL,ALLI: F7 2.0 Collegiate $245,true,50,,ALLI_GROUP,,2090,,,,2026-01-01,2026-04-30,all,override_unit_price,245,
 ALLI-A11-STK,ALLI: A11 2.0 Stock $75,true,50,,ALLI_GROUP,,2058,,,,2026-01-01,2026-04-30,all,override_unit_price,75,
 ALLI-F7-VAR,ALLI: F7 Air Varsity $270,true,50,,ALLI_GROUP,,2070,,,,2026-01-01,2026-04-30,all,override_unit_price,270,

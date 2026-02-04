@@ -42,6 +42,14 @@ app.include_router(rules_router)
 class CalcRequest(BaseModel):
     account_id: str
     items: Dict[str, int]
+    item_configs: Optional[Dict[str, Dict[str, str]]] = None
+    order_date: Optional[str] = None
+    payment_method: Optional[str] = None
+    order_type: Optional[int] = None
+    ship_method: Optional[str] = None
+    ship_to_type: Optional[str] = None
+    customer_tier: Optional[str] = None
+    request_date: Optional[str] = None
 
 @app.get("/")
 async def root():
@@ -50,12 +58,25 @@ async def root():
 @app.post("/calculate")
 async def calculate_quote(req: CalcRequest):
     try:
-        request = Request(account_id=req.account_id, items=req.items)
+        request = Request(
+            account_id=req.account_id, 
+            items=req.items,
+            item_configs=req.item_configs,
+            order_date=req.order_date,
+            payment_method=req.payment_method,
+            order_type=req.order_type,
+            ship_method=req.ship_method,
+            ship_to_type=req.ship_to_type,
+            customer_tier=req.customer_tier,
+            request_date=req.request_date or req.order_date
+        )
         result = engine.calculate(request)
         # Use jsonable_encoder to handle dataclasses and potential numpy types
         from fastapi.encoders import jsonable_encoder
         return jsonable_encoder(result)
     except Exception as e:
+        import traceback
+        print(traceback.format_exc())
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/catalog")

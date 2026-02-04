@@ -1,0 +1,8 @@
+match_type,match_value,program_id,priority,notes
+account,4883,SPORTS_LINE,10,Sports Line Account override
+group,BSN,BSN,50,
+group,GAME_ONE,GAME_ONE,50,
+group,ALLI_GROUP,ALLI,50,
+group,LEAGUE,LEAGUE,50,
+group,INTERNATIONAL,INTERNATIONAL,10,
+order_type,10,RETAIL,100,

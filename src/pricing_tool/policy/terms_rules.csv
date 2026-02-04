@@ -1,0 +1,6 @@
+program_id,min_total,max_total,terms_code,priority,notes
+STANDARD,0,999.99,Net 30,50,
+STANDARD,1000,9999999,Net 60,50,
+BSN,0,9999999,Net 60,50,
+ALLI,0,9999999,Net 90,50,
+INTERNATIONAL,0,9999999,CIA,50,Cash In Advance

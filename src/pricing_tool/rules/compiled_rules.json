@@ -1,5 +1,5 @@
 {
-  "compiled_at": "2026-02-03T20:45:54.719971",
+  "compiled_at": "2026-02-03T22:27:07.626459",
   "source_file": "C:\\Projects\\Certor\\pricing-app\\src\\pricing_tool\\rules\\rules.csv",
   "total_rules": 68,
   "active_rules": 68,
@@ -12,7 +12,7 @@
       "match": {
         "sku_prefix": "193092",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-04-15",
         "channel": "all"
       },
       "action": {
@@ -29,7 +29,7 @@
       "match": {
         "sku_prefix": "19309E",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-04-15",
         "channel": "all"
       },
       "action": {
@@ -46,7 +46,7 @@
       "match": {
         "sku_prefix": "2075",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-04-15",
         "channel": "all"
       },
       "action": {
@@ -63,7 +63,7 @@
       "match": {
         "sku_prefix": "2078",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-04-15",
         "channel": "all"
       },
       "action": {
@@ -152,7 +152,7 @@
         "account_group": "BSN",
         "sku_prefix": "2070",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-01-31",
         "channel": "all"
       },
       "action": {
@@ -170,7 +170,7 @@
         "account_group": "BSN",
         "sku_prefix": "2075",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-01-31",
         "channel": "all"
       },
       "action": {
@@ -188,7 +188,7 @@
         "account_group": "BSN",
         "sku_prefix": "2078",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-01-31",
         "channel": "all"
       },
       "action": {
@@ -206,7 +206,7 @@
         "account_group": "BSN",
         "sku_prefix": "19300",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-01-31",
         "channel": "all"
       },
       "action": {
@@ -224,7 +224,7 @@
         "account_group": "BSN",
         "sku_prefix": "19302",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-01-31",
         "channel": "all"
       },
       "action": {
@@ -242,7 +242,7 @@
         "account_group": "BSN",
         "sku_prefix": "19309",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-01-31",
         "channel": "all"
       },
       "action": {
@@ -260,7 +260,7 @@
         "account_group": "BSN",
         "sku_prefix": "9650",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-01-31",
         "channel": "all"
       },
       "action": {
@@ -278,7 +278,7 @@
         "account_group": "BSN",
         "sku": "79960500",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-01-31",
         "channel": "all"
       },
       "action": {
@@ -296,7 +296,7 @@
         "account_group": "BSN",
         "sku": "79940000",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-01-31",
         "channel": "all"
       },
       "action": {
@@ -1070,7 +1070,7 @@
         "account_group": "BSN",
         "sku": "2075001002301",
         "start_date": "2026-01-01",
-        "end_date": "2026-04-30",
+        "end_date": "2026-01-31",
         "channel": "all"
       },
       "action": {

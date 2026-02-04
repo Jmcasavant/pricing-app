@@ -8,10 +8,12 @@ import os
 import sys
 import pytest
 
-# Add parent directory to path for imports
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add src to path for internal imports
+src_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'src')
+if src_path not in sys.path:
+    sys.path.insert(0, src_path)
 
-from pricing_engine import PricingEngine
+from pricing_tool.engine import PricingEngine
 
 
 @pytest.fixture(scope="module")

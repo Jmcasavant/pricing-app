@@ -27,6 +27,7 @@ class LineItem:
     source: str  # "Contract" or "MSRP"
     rules_applied: list[str] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
+    configuration: Optional[dict[str, str]] = None
     trace: list[TraceStep] = field(default_factory=list)
     
     def add_trace(self, step: str, description: str, value: str = None):
@@ -54,9 +55,21 @@ class Request:
     account_id: str
     items: dict[str, int]  # SKU → quantity
     
-    # Optional context for future rule matching
+    # Optional line configuration for customizable items (e.g., helmets)
+    # Map of SKU -> { "shell_color": "matte_black", ... }
+    item_configs: Optional[dict[str, dict[str, str]]] = None
+    
+    # Optional context for rule matching and policy resolution
     channel: Optional[str] = None  # "phone", "email", "portal"
     request_date: Optional[str] = None  # ISO date string
+    
+    # [NEW] Phase 1 Context
+    order_date: Optional[str] = None
+    payment_method: Optional[str] = None  # PO/CC
+    order_type: Optional[int] = None
+    ship_method: Optional[str] = None
+    ship_to_type: Optional[str] = None
+    customer_tier: Optional[str] = None
 
 
 @dataclass
@@ -67,6 +80,7 @@ class Result:
     total: float
     lines: list[LineItem]
     intel: dict = field(default_factory=dict)
+    policy: dict = field(default_factory=dict)  # [NEW] Terms/Freight/Holds
     warnings: list[str] = field(default_factory=list)
     trace: list[TraceStep] = field(default_factory=list)
     
