@@ -1,0 +1,69 @@
+rule_id,name,active,priority,account,account_group,sku,sku_prefix,brand,min_qty,max_qty,start_date,end_date,channel,action_type,action_value,notes
+P2-YTH-Z2-10,P2 Instant Rebate: Youth Zero 2,true,10,,,,193092,,,,2026-01-01,2026-04-30,all,discount_amount,10,Instant Rebate $10 off Stock/CTO
+P2-YTH-Z2E-25,P2 Instant Rebate: Youth Zero 2 Elite,true,10,,,,19309E,,,,2026-01-01,2026-04-30,all,discount_amount,25,Instant Rebate $25 off Elite
+P2-2075-10,P2 Instant Rebate: 2075 Stock/CTO,true,10,,,,2075,,,,2026-01-01,2026-04-30,all,discount_amount,10,Instant Rebate $10 off 2075 Series
+P2-2078-25,P2 Instant Rebate: 2078 Stock/CTO,true,10,,,,2078,,,,2026-01-01,2026-04-30,all,discount_amount,25,Instant Rebate $25 off 2078 Series
+G1-F7-VAR,Game One: F7 Varsity $285,true,50,,GAME_ONE,,2070,,,,2026-01-01,2026-04-30,all,override_unit_price,285,Period 2 Special
+G1-F7-YTH-CTO,Game One: F7 Youth CTO $115,true,50,,GAME_ONE,,2075,,,,2026-01-01,2026-04-30,all,override_unit_price,115,Period 2 Special
+G1-F7-YTH-STK,Game One: F7 Youth Stock $100,true,60,,GAME_ONE,2075001002301,,,,,2026-01-01,2026-04-30,all,override_unit_price,100,Overrides CTO price
+G1-F7-YTH-ELT,Game One: F7 Youth Elite $200,true,50,,GAME_ONE,,2078,,,,2026-01-01,2026-04-30,all,override_unit_price,200,Period 2 Special
+BSN-F7-VAR,BSN: F7 Varsity $267,true,50,,BSN,,2070,,,,2026-01-01,2026-04-30,all,override_unit_price,267,Period 2 Special
+BSN-F7-YTH-CTO,BSN: F7 Youth CTO $109,true,50,,BSN,,2075,,,,2026-01-01,2026-04-30,all,override_unit_price,109,Period 2 Special
+BSN-F7-YTH-STK,BSN: F7 Youth Stock $96,true,60,,BSN,2075001002301,,,,,2026-01-01,2026-04-30,all,override_unit_price,96,Overrides CTO price
+BSN-F7-YTH-ELT,BSN: F7 Youth Elite $192,true,50,,BSN,,2078,,,,2026-01-01,2026-04-30,all,override_unit_price,192,Period 2 Special
+BSN-Z2-VAR,BSN: Varsity Zero 2 $356,true,50,,BSN,,19300,,,,2026-01-01,2026-04-30,all,override_unit_price,356,Includes QB Elite
+BSN-Z2-TRN,BSN: Zero 2 Trench $377,true,50,,BSN,,19302,,,,2026-01-01,2026-04-30,all,override_unit_price,377,Includes QB Elite
+BSN-Z2-YTH,BSN: Youth Zero 2 $249,true,50,,BSN,,19309,,,,2026-01-01,2026-04-30,all,override_unit_price,249,
+BSN-ARC-VAR,BSN: ARC V1 Varsity $159,true,50,,BSN,,9650,,,,2026-01-01,2026-04-30,all,override_unit_price,159,ARC V1 Varsity Pads
+BSN-7996,BSN: Back Plate $8,true,50,,BSN,79960500,,,,,2026-01-01,2026-04-30,all,override_unit_price,8,
+BSN-7994,BSN: Rib Pad $7,true,50,,BSN,79940000,,,,,2026-01-01,2026-04-30,all,override_unit_price,7,
+ALLI-F72-COL,ALLI: F7 2.0 Collegiate $245,true,50,,ALLI_GROUP,,2090,,,,2026-01-01,2026-04-30,all,override_unit_price,245,
+ALLI-A11-STK,ALLI: A11 2.0 Stock $75,true,50,,ALLI_GROUP,,2058,,,,2026-01-01,2026-04-30,all,override_unit_price,75,
+ALLI-F7-VAR,ALLI: F7 Air Varsity $270,true,50,,ALLI_GROUP,,2070,,,,2026-01-01,2026-04-30,all,override_unit_price,270,
+ALLI-F7-VAR-ELT,ALLI: F7 Varsity Elite $375,true,60,,ALLI_GROUP,,207000E,,,,2026-01-01,2026-04-30,all,override_unit_price,375,
+ALLI-F7-YTH-STK,ALLI: F7 Youth Stock $95,true,60,,ALLI_GROUP,2075001002301,,,,,2026-01-01,2026-04-30,all,override_unit_price,95,
+ALLI-F7-YTH-CTO,ALLI: F7 Youth CTO $110,true,50,,ALLI_GROUP,,2075,,,,2026-01-01,2026-04-30,all,override_unit_price,110,
+ALLI-F7-YTH-ELT,ALLI: F7 Youth Elite $180,true,50,,ALLI_GROUP,,2078,,,,2026-01-01,2026-04-30,all,override_unit_price,180,
+ALLI-Z2-VAR,ALLI: Varsity Zero 2 $365,true,50,,ALLI_GROUP,,19300,,,,2026-01-01,2026-04-30,all,override_unit_price,365,
+ALLI-Z2-ELT,ALLI: Varsity Zero 2 Elite $390,true,60,,ALLI_GROUP,,19300E,,,,2026-01-01,2026-04-30,all,override_unit_price,390,
+ALLI-Z2-TRN,ALLI: Zero 2 Trench $475,true,50,,ALLI_GROUP,,19302,,,,2026-01-01,2026-04-30,all,override_unit_price,475,
+ALLI-Z2-TRN-ELT,ALLI: Trench Elite $500,true,60,,ALLI_GROUP,,19302E,,,,2026-01-01,2026-04-30,all,override_unit_price,500,
+ALLI-Z2-QB,ALLI: Zero 2 QB Elite $495,true,60,,ALLI_GROUP,,19304E,,,,2026-01-01,2026-04-30,all,override_unit_price,495,
+ALLI-HYBRID,ALLI: Hybrid Pad $110,true,50,,ALLI_GROUP,,801502,,,,2026-01-01,2026-04-30,all,override_unit_price,110,
+ALLI-HYBRID-2,ALLI: Hybrid Pad $110,true,50,,ALLI_GROUP,,801702,,,,2026-01-01,2026-04-30,all,override_unit_price,110,
+ALLI-HYBRID-3,ALLI: Hybrid Pad $110,true,50,,ALLI_GROUP,,801602,,,,2026-01-01,2026-04-30,all,override_unit_price,110,
+ALLI-AIR,ALLI: Air Pad $110,true,50,,ALLI_GROUP,,801503,,,,2026-01-01,2026-04-30,all,override_unit_price,110,
+ALLI-AIR-2,ALLI: Air Pad $110,true,50,,ALLI_GROUP,,801703,,,,2026-01-01,2026-04-30,all,override_unit_price,110,
+ALLI-AIR-3,ALLI: Air Pad $110,true,50,,ALLI_GROUP,,801603,,,,2026-01-01,2026-04-30,all,override_unit_price,110,
+ALLI-FLUX,ALLI: Flux Pad $130,true,50,,ALLI_GROUP,,801501,,,,2026-01-01,2026-04-30,all,override_unit_price,130,
+ALLI-FLUX-2,ALLI: Flux Pad $130,true,50,,ALLI_GROUP,,801701,,,,2026-01-01,2026-04-30,all,override_unit_price,130,
+ALLI-FLUX-3,ALLI: Flux Pad $130,true,50,,ALLI_GROUP,,801601,,,,2026-01-01,2026-04-30,all,override_unit_price,130,
+ALLI-YFLEX,ALLI: Y-Flex Pad $30,true,50,,ALLI_GROUP,80120001,,,,,2026-01-01,2026-04-30,all,override_unit_price,30,
+ALLI-7996,ALLI: Back Plate $8,true,50,,ALLI_GROUP,79960500,,,,,2026-01-01,2026-04-30,all,override_unit_price,8,
+ALLI-7994,ALLI: Rib Pad $7,true,50,,ALLI_GROUP,79940000,,,,,2026-01-01,2026-04-30,all,override_unit_price,7,
+LO-F72-COL,LEAGUE: F7 2.0 Collegiate $270,true,50,,LEAGUE,,2090,,,,2026-01-01,2026-04-30,all,override_unit_price,270,
+LO-A11-STK,LEAGUE: A11 2.0 Stock $95,true,50,,LEAGUE,,2058,,,,2026-01-01,2026-04-30,all,override_unit_price,75,
+LO-F7-VAR,LEAGUE: F7 Air Varsity $295,true,50,,LEAGUE,,2070,,,,2026-01-01,2026-04-30,all,override_unit_price,295,
+LO-F7-YTH-STK,LEAGUE: F7 Youth Stock $100,true,60,,LEAGUE,2075001002301,,,,,2026-01-01,2026-04-30,all,override_unit_price,100,
+LO-F7-YTH-CTO,LEAGUE: F7 Youth CTO $115,true,50,,LEAGUE,,2075,,,,2026-01-01,2026-04-30,all,override_unit_price,115,
+LO-F7-YTH-ELT,LEAGUE: F7 Youth Elite $180,true,50,,LEAGUE,,2078,,,,2026-01-01,2026-04-30,all,override_unit_price,180,
+LO-F7-YTH-ELT-CTO,LEAGUE: F7 Youth Elite CTO $195,true,60,,LEAGUE,,2078,,,,2026-01-01,2026-04-30,all,override_unit_price,195,
+LO-Z2-VAR,LEAGUE: Varsity Zero 2 $390,true,50,,LEAGUE,,19300,,,,2026-01-01,2026-04-30,all,override_unit_price,390,
+LO-Z2-TRN,LEAGUE: Zero 2 Trench $415,true,50,,LEAGUE,,19302,,,,2026-01-01,2026-04-30,all,override_unit_price,415,
+LO-Z2-QB,LEAGUE: Zero 2 QB Elite $500,true,60,,LEAGUE,,19304E,,,,2026-01-01,2026-04-30,all,override_unit_price,500,
+LO-Z2-YTH,LEAGUE: Youth Zero 2 $265,true,50,,LEAGUE,,19309,,,,2026-01-01,2026-04-30,all,override_unit_price,265,
+LO-7996,LEAGUE: Back Plate $10,true,50,,LEAGUE,79960500,,,,,2026-01-01,2026-04-30,all,override_unit_price,10,
+LO-7994,LEAGUE: Rib Pad $10,true,50,,LEAGUE,79940000,,,,,2026-01-01,2026-04-30,all,override_unit_price,10,
+LO-ARC-VAR,LEAGUE: ARC V1 Varsity $175,true,50,,LEAGUE,,9650,,,,2026-01-01,2026-04-30,all,override_unit_price,175,
+LO-TFLEX,LEAGUE: T-Flex $60,true,50,,LEAGUE,,T-Flex,,,,2026-01-01,2026-04-30,all,override_unit_price,60,
+LO-SPEC-80150103,LEAGUE: XV Flux Skill $160,true,50,,LEAGUE,80150103,,,,,2026-01-01,2026-04-30,all,override_unit_price,160,Manual SKU Match
+LO-SPEC-80160103,LEAGUE: XV Flux AP $160,true,50,,LEAGUE,80160103,,,,,2026-01-01,2026-04-30,all,override_unit_price,160,Manual SKU Match
+LO-SPEC-80170107,LEAGUE: XV Flux Line $160,true,50,,LEAGUE,80170107,,,,,2026-01-01,2026-04-30,all,override_unit_price,160,Manual SKU Match
+LO-SPEC-80130506,LEAGUE: XV HD QB $60,true,50,,LEAGUE,80130506,,,,,2026-01-01,2026-04-30,all,override_unit_price,60,Manual SKU Match
+LO-SPEC-80131707,LEAGUE: XV HD Skill $60,true,50,,LEAGUE,80131707,,,,,2026-01-01,2026-04-30,all,override_unit_price,60,Manual SKU Match
+LO-SPEC-850803400,LEAGUE: XV Rib $46.50,true,50,,LEAGUE,850803400,,,,,2026-01-01,2026-04-30,all,override_unit_price,46.5,Manual SKU Match
+LO-SPEC-81130503,LEAGUE: XV7 QB $305,true,50,,LEAGUE,81130503,,,,,2026-01-01,2026-04-30,all,override_unit_price,305,Manual SKU Match
+LO-SPEC-81131703,LEAGUE: XV7 Skill $305,true,50,,LEAGUE,81131703,,,,,2026-01-01,2026-04-30,all,override_unit_price,305,Manual SKU Match
+LO-SPEC-81135503,LEAGUE: XV7 OL $305,true,50,,LEAGUE,81135503,,,,,2026-01-01,2026-04-30,all,override_unit_price,305,Manual SKU Match
+LO-SPEC-81135703,LEAGUE: XV7 AP $305,true,50,,LEAGUE,81135703,,,,,2026-01-01,2026-04-30,all,override_unit_price,305,Manual SKU Match
+AYF-25-OFF,AYF Direct: 25% Off MSRP,true,10,,DIRECT_AYF,,,,,,2026-01-01,2099-12-31,all,discount_percent,25,Standard AYF Discount Code: AYF25

@@ -1,0 +1,122 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Pricing Rule Schema",
+    "description": "Schema for pricing rules that sit on top of tier-based pricing",
+    "type": "object",
+    "properties": {
+        "rule_id": {
+            "type": "string",
+            "description": "Unique stable identifier for the rule (e.g., 'RULE-001')"
+        },
+        "name": {
+            "type": "string",
+            "description": "Human-readable name for the rule"
+        },
+        "active": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether the rule is currently active"
+        },
+        "priority": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "description": "Priority order (lower = higher priority, applied first)"
+        },
+        "match": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string",
+                    "description": "Specific account ID to match"
+                },
+                "account_group": {
+                    "type": "string",
+                    "description": "Account group ID to match"
+                },
+                "sku": {
+                    "type": "string",
+                    "description": "Specific SKU to match (supports wildcards: * = any)"
+                },
+                "sku_prefix": {
+                    "type": "string",
+                    "description": "SKU prefix to match (e.g., '2075' matches all 2075xxx SKUs)"
+                },
+                "brand": {
+                    "type": "string",
+                    "description": "Brand/category to match"
+                },
+                "min_qty": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Minimum quantity required for rule to apply"
+                },
+                "max_qty": {
+                    "type": "integer",
+                    "description": "Maximum quantity for rule to apply"
+                },
+                "start_date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Rule effective start date (YYYY-MM-DD)"
+                },
+                "end_date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Rule effective end date (YYYY-MM-DD)"
+                },
+                "channel": {
+                    "type": "string",
+                    "enum": [
+                        "phone",
+                        "email",
+                        "portal",
+                        "all"
+                    ],
+                    "description": "Sales channel restriction"
+                }
+            }
+        },
+        "action": {
+            "type": "object",
+            "required": [
+                "type",
+                "value"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "set_tier",
+                        "override_unit_price",
+                        "discount_percent",
+                        "discount_amount",
+                        "price_floor"
+                    ],
+                    "description": "Type of pricing action to apply"
+                },
+                "value": {
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ],
+                    "description": "Value for the action (tier name, price, percentage, or amount)"
+                }
+            }
+        },
+        "notes": {
+            "type": "string",
+            "description": "Internal notes about the rule (for audit/documentation)"
+        }
+    },
+    "required": [
+        "rule_id",
+        "priority",
+        "action",
+        "active"
+    ]
+}

@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-02-03T19:00:11.416577",
+  "status": "success",
+  "input_files": {
+    "shopify_export": {
+      "path": "C:\\Projects\\Certor\\pricing-app\\products_export_1.csv",
+      "hash": "0f3f0f7c945e"
+    },
+    "catalogs_export": {
+      "path": "C:\\Projects\\Certor\\pricing-app\\catalogs_export.csv",
+      "hash": "ac2dbbd4ec84"
+    }
+  },
+  "metrics": {
+    "initial_sku_count": 3856,
+    "duplicates_removed": 104,
+    "tier_coverage": {
+      "BRONZE": {
+        "priced_skus": 2936,
+        "coverage_pct": 78.3
+      },
+      "SILVER": {
+        "priced_skus": 2936,
+        "coverage_pct": 78.3
+      },
+      "GOLD": {
+        "priced_skus": 2941,
+        "coverage_pct": 78.4
+      },
+      "PLATINUM": {
+        "priced_skus": 2940,
+        "coverage_pct": 78.4
+      }
+    },
+    "final_sku_count": 3752,
+    "missing_msrp": 0
+  },
+  "warnings": [],
+  "errors": [],
+  "output_file": "C:\\Projects\\Certor\\pricing-app\\Master_Catalog_Final.csv"
+}

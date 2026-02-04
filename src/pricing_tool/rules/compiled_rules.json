@@ -1,0 +1,1227 @@
+{
+  "compiled_at": "2026-02-03T20:45:54.719971",
+  "source_file": "C:\\Projects\\Certor\\pricing-app\\src\\pricing_tool\\rules\\rules.csv",
+  "total_rules": 68,
+  "active_rules": 68,
+  "rules": [
+    {
+      "rule_id": "P2-YTH-Z2-10",
+      "name": "P2 Instant Rebate: Youth Zero 2",
+      "active": true,
+      "priority": 10,
+      "match": {
+        "sku_prefix": "193092",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "discount_amount",
+        "value": 10.0
+      },
+      "notes": "Instant Rebate $10 off Stock/CTO"
+    },
+    {
+      "rule_id": "P2-YTH-Z2E-25",
+      "name": "P2 Instant Rebate: Youth Zero 2 Elite",
+      "active": true,
+      "priority": 10,
+      "match": {
+        "sku_prefix": "19309E",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "discount_amount",
+        "value": 25.0
+      },
+      "notes": "Instant Rebate $25 off Elite"
+    },
+    {
+      "rule_id": "P2-2075-10",
+      "name": "P2 Instant Rebate: 2075 Stock/CTO",
+      "active": true,
+      "priority": 10,
+      "match": {
+        "sku_prefix": "2075",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "discount_amount",
+        "value": 10.0
+      },
+      "notes": "Instant Rebate $10 off 2075 Series"
+    },
+    {
+      "rule_id": "P2-2078-25",
+      "name": "P2 Instant Rebate: 2078 Stock/CTO",
+      "active": true,
+      "priority": 10,
+      "match": {
+        "sku_prefix": "2078",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "discount_amount",
+        "value": 25.0
+      },
+      "notes": "Instant Rebate $25 off 2078 Series"
+    },
+    {
+      "rule_id": "AYF-25-OFF",
+      "name": "AYF Direct: 25% Off MSRP",
+      "active": true,
+      "priority": 10,
+      "match": {
+        "account_group": "DIRECT_AYF",
+        "start_date": "2026-01-01",
+        "end_date": "2099-12-31",
+        "channel": "all"
+      },
+      "action": {
+        "type": "discount_percent",
+        "value": 25.0
+      },
+      "notes": "Standard AYF Discount Code: AYF25"
+    },
+    {
+      "rule_id": "G1-F7-VAR",
+      "name": "Game One: F7 Varsity $285",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "GAME_ONE",
+        "sku_prefix": "2070",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 285.0
+      },
+      "notes": "Period 2 Special"
+    },
+    {
+      "rule_id": "G1-F7-YTH-CTO",
+      "name": "Game One: F7 Youth CTO $115",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "GAME_ONE",
+        "sku_prefix": "2075",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 115.0
+      },
+      "notes": "Period 2 Special"
+    },
+    {
+      "rule_id": "G1-F7-YTH-ELT",
+      "name": "Game One: F7 Youth Elite $200",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "GAME_ONE",
+        "sku_prefix": "2078",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 200.0
+      },
+      "notes": "Period 2 Special"
+    },
+    {
+      "rule_id": "BSN-F7-VAR",
+      "name": "BSN: F7 Varsity $267",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "BSN",
+        "sku_prefix": "2070",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 267.0
+      },
+      "notes": "Period 2 Special"
+    },
+    {
+      "rule_id": "BSN-F7-YTH-CTO",
+      "name": "BSN: F7 Youth CTO $109",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "BSN",
+        "sku_prefix": "2075",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 109.0
+      },
+      "notes": "Period 2 Special"
+    },
+    {
+      "rule_id": "BSN-F7-YTH-ELT",
+      "name": "BSN: F7 Youth Elite $192",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "BSN",
+        "sku_prefix": "2078",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 192.0
+      },
+      "notes": "Period 2 Special"
+    },
+    {
+      "rule_id": "BSN-Z2-VAR",
+      "name": "BSN: Varsity Zero 2 $356",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "BSN",
+        "sku_prefix": "19300",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 356.0
+      },
+      "notes": "Includes QB Elite"
+    },
+    {
+      "rule_id": "BSN-Z2-TRN",
+      "name": "BSN: Zero 2 Trench $377",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "BSN",
+        "sku_prefix": "19302",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 377.0
+      },
+      "notes": "Includes QB Elite"
+    },
+    {
+      "rule_id": "BSN-Z2-YTH",
+      "name": "BSN: Youth Zero 2 $249",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "BSN",
+        "sku_prefix": "19309",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 249.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "BSN-ARC-VAR",
+      "name": "BSN: ARC V1 Varsity $159",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "BSN",
+        "sku_prefix": "9650",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 159.0
+      },
+      "notes": "ARC V1 Varsity Pads"
+    },
+    {
+      "rule_id": "BSN-7996",
+      "name": "BSN: Back Plate $8",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "BSN",
+        "sku": "79960500",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 8.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "BSN-7994",
+      "name": "BSN: Rib Pad $7",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "BSN",
+        "sku": "79940000",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 7.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-F72-COL",
+      "name": "ALLI: F7 2.0 Collegiate $245",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "2090",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 245.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-A11-STK",
+      "name": "ALLI: A11 2.0 Stock $75",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "2058",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 75.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-F7-VAR",
+      "name": "ALLI: F7 Air Varsity $270",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "2070",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 270.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-F7-YTH-CTO",
+      "name": "ALLI: F7 Youth CTO $110",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "2075",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 110.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-F7-YTH-ELT",
+      "name": "ALLI: F7 Youth Elite $180",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "2078",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 180.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-Z2-VAR",
+      "name": "ALLI: Varsity Zero 2 $365",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "19300",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 365.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-Z2-TRN",
+      "name": "ALLI: Zero 2 Trench $475",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "19302",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 475.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-HYBRID",
+      "name": "ALLI: Hybrid Pad $110",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "801502",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 110.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-HYBRID-2",
+      "name": "ALLI: Hybrid Pad $110",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "801702",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 110.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-HYBRID-3",
+      "name": "ALLI: Hybrid Pad $110",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "801602",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 110.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-AIR",
+      "name": "ALLI: Air Pad $110",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "801503",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 110.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-AIR-2",
+      "name": "ALLI: Air Pad $110",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "801703",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 110.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-AIR-3",
+      "name": "ALLI: Air Pad $110",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "801603",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 110.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-FLUX",
+      "name": "ALLI: Flux Pad $130",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "801501",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 130.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-FLUX-2",
+      "name": "ALLI: Flux Pad $130",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "801701",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 130.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-FLUX-3",
+      "name": "ALLI: Flux Pad $130",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "801601",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 130.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-YFLEX",
+      "name": "ALLI: Y-Flex Pad $30",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku": "80120001",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 30.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-7996",
+      "name": "ALLI: Back Plate $8",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku": "79960500",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 8.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-7994",
+      "name": "ALLI: Rib Pad $7",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku": "79940000",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 7.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-F72-COL",
+      "name": "LEAGUE: F7 2.0 Collegiate $270",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "2090",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 270.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-A11-STK",
+      "name": "LEAGUE: A11 2.0 Stock $95",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "2058",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 75.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-F7-VAR",
+      "name": "LEAGUE: F7 Air Varsity $295",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "2070",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 295.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-F7-YTH-CTO",
+      "name": "LEAGUE: F7 Youth CTO $115",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "2075",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 115.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-F7-YTH-ELT",
+      "name": "LEAGUE: F7 Youth Elite $180",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "2078",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 180.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-Z2-VAR",
+      "name": "LEAGUE: Varsity Zero 2 $390",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "19300",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 390.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-Z2-TRN",
+      "name": "LEAGUE: Zero 2 Trench $415",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "19302",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 415.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-Z2-YTH",
+      "name": "LEAGUE: Youth Zero 2 $265",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "19309",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 265.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-7996",
+      "name": "LEAGUE: Back Plate $10",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "79960500",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 10.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-7994",
+      "name": "LEAGUE: Rib Pad $10",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "79940000",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 10.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-ARC-VAR",
+      "name": "LEAGUE: ARC V1 Varsity $175",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "9650",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 175.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-TFLEX",
+      "name": "LEAGUE: T-Flex $60",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "T-Flex",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 60.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-SPEC-80150103",
+      "name": "LEAGUE: XV Flux Skill $160",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "80150103",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 160.0
+      },
+      "notes": "Manual SKU Match"
+    },
+    {
+      "rule_id": "LO-SPEC-80160103",
+      "name": "LEAGUE: XV Flux AP $160",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "80160103",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 160.0
+      },
+      "notes": "Manual SKU Match"
+    },
+    {
+      "rule_id": "LO-SPEC-80170107",
+      "name": "LEAGUE: XV Flux Line $160",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "80170107",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 160.0
+      },
+      "notes": "Manual SKU Match"
+    },
+    {
+      "rule_id": "LO-SPEC-80130506",
+      "name": "LEAGUE: XV HD QB $60",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "80130506",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 60.0
+      },
+      "notes": "Manual SKU Match"
+    },
+    {
+      "rule_id": "LO-SPEC-80131707",
+      "name": "LEAGUE: XV HD Skill $60",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "80131707",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 60.0
+      },
+      "notes": "Manual SKU Match"
+    },
+    {
+      "rule_id": "LO-SPEC-850803400",
+      "name": "LEAGUE: XV Rib $46.50",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "850803400",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 46.5
+      },
+      "notes": "Manual SKU Match"
+    },
+    {
+      "rule_id": "LO-SPEC-81130503",
+      "name": "LEAGUE: XV7 QB $305",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "81130503",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 305.0
+      },
+      "notes": "Manual SKU Match"
+    },
+    {
+      "rule_id": "LO-SPEC-81131703",
+      "name": "LEAGUE: XV7 Skill $305",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "81131703",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 305.0
+      },
+      "notes": "Manual SKU Match"
+    },
+    {
+      "rule_id": "LO-SPEC-81135503",
+      "name": "LEAGUE: XV7 OL $305",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "81135503",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 305.0
+      },
+      "notes": "Manual SKU Match"
+    },
+    {
+      "rule_id": "LO-SPEC-81135703",
+      "name": "LEAGUE: XV7 AP $305",
+      "active": true,
+      "priority": 50,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "81135703",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 305.0
+      },
+      "notes": "Manual SKU Match"
+    },
+    {
+      "rule_id": "G1-F7-YTH-STK",
+      "name": "Game One: F7 Youth Stock $100",
+      "active": true,
+      "priority": 60,
+      "match": {
+        "account_group": "GAME_ONE",
+        "sku": "2075001002301",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 100.0
+      },
+      "notes": "Overrides CTO price"
+    },
+    {
+      "rule_id": "BSN-F7-YTH-STK",
+      "name": "BSN: F7 Youth Stock $96",
+      "active": true,
+      "priority": 60,
+      "match": {
+        "account_group": "BSN",
+        "sku": "2075001002301",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 96.0
+      },
+      "notes": "Overrides CTO price"
+    },
+    {
+      "rule_id": "ALLI-F7-VAR-ELT",
+      "name": "ALLI: F7 Varsity Elite $375",
+      "active": true,
+      "priority": 60,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "207000E",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 375.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-F7-YTH-STK",
+      "name": "ALLI: F7 Youth Stock $95",
+      "active": true,
+      "priority": 60,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku": "2075001002301",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 95.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-Z2-ELT",
+      "name": "ALLI: Varsity Zero 2 Elite $390",
+      "active": true,
+      "priority": 60,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "19300E",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 390.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-Z2-TRN-ELT",
+      "name": "ALLI: Trench Elite $500",
+      "active": true,
+      "priority": 60,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "19302E",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 500.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "ALLI-Z2-QB",
+      "name": "ALLI: Zero 2 QB Elite $495",
+      "active": true,
+      "priority": 60,
+      "match": {
+        "account_group": "ALLI_GROUP",
+        "sku_prefix": "19304E",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 495.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-F7-YTH-STK",
+      "name": "LEAGUE: F7 Youth Stock $100",
+      "active": true,
+      "priority": 60,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku": "2075001002301",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 100.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-F7-YTH-ELT-CTO",
+      "name": "LEAGUE: F7 Youth Elite CTO $195",
+      "active": true,
+      "priority": 60,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "2078",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 195.0
+      },
+      "notes": ""
+    },
+    {
+      "rule_id": "LO-Z2-QB",
+      "name": "LEAGUE: Zero 2 QB Elite $500",
+      "active": true,
+      "priority": 60,
+      "match": {
+        "account_group": "LEAGUE",
+        "sku_prefix": "19304E",
+        "start_date": "2026-01-01",
+        "end_date": "2026-04-30",
+        "channel": "all"
+      },
+      "action": {
+        "type": "override_unit_price",
+        "value": 500.0
+      },
+      "notes": ""
+    }
+  ]
+}

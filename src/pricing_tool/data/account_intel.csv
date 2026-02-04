@@ -1,0 +1,12 @@
+Match Value,Freight,Terms,Notes
+MSRP,Collect,Prepaid,
+GAME_ONE,Prepaid > $1k,Net 30,
+BSN,Collect,Prepaid,
+ALLI_GROUP,1/2 FFA > $5k; FFA > $10k,Net 60 ($1-$5k),
+LEAGUE,Collect,Net 15,
+DIRECT_AYF
+Unknown
+Credit
+Card
+See
+Notes
